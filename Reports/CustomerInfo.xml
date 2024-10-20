@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<profile>
+  <section name="Custommer Information">
+    <entry name="Contact">
+    </entry>
+    <entry name="Company">
+    </entry>
+    <entry name="Address">
+    </entry>
+    <entry name="Telephone">
+    </entry>
+    <entry name="Email">
+    </entry>
+    <entry name="ProductKey">789905933C-35C96808BE-C94218F749-819BA13E20</entry>
+    <entry name="RegisterNumber">TSP3FXTBZ2PZ1KGT</entry>
+    <entry name="ModelHD">SAMSUNG HD080HJ</entry>
+    <entry name="TypeHD">IDE</entry>
+    <entry name="SerialHD">30534538314a4c4f303839373438202020202020</entry>
+  </section>
+</profile>

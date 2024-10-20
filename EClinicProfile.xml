@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<profile>
+  <section name="Common Configuration">
+    <entry name="Image Folder">C:\temp\</entry>
+    <entry name="Logo File">C:\temp\logo.jpg</entry>
+    <entry name="Init Passwd">yQe6VPukJU9M7kh/cNGKgA==</entry>
+    <entry name="AutoCompleteTextBoxMode">OFF</entry>
+    <entry name="CultureInfo">vi-VN</entry>
+    <entry name="PatientQueueWaitTimeSeconds">5</entry>
+    <entry name="Stand Alone Module">Yes</entry>
+    <entry name="Province">Khánh Hòa</entry>
+    <entry name="ProvinceCode">511</entry>
+    <entry name="District">Thành phố Nha Trang</entry>
+    <entry name="DistrictCode">51101</entry>
+    <entry name="CountryID">291</entry>
+    <entry name="Add-in Folder">Addins</entry>
+    <entry name="ReportsPath">D:\EClinic_SA002 - Test\Reports\</entry>
+    <entry name="PreMaYTe">701TL</entry>
+  </section>
+  <section name="EchoAdmin Params">
+    <entry name="Unspecified Computer">Chưa xác định máy</entry>
+    <entry name="Cho phep thay doi phong">0</entry>
+    <entry name="Computer No.">SA002</entry>
+    <entry name="Default Video Card No.">1</entry>
+    <entry name="Enable Service Request Selection">YES</entry>
+    <entry name="Remove Finished Patient">YES</entry>
+  </section>
+  <section name="Data Connection">
+    <entry name="Encrypt">No</entry>
+    <entry name="ConnectionString">server=localhost;port=3307; user id=root; password=082598; database=eclinic2; pooling=false; charset=utf8</entry>
+  </section>
+
+</profile>
