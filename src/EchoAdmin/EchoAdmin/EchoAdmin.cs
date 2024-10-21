@@ -373,9 +373,11 @@ namespace EchoAdmin
                 try
                 {
                     EClinicDB.ExecuteNonQuery("spps_clsketqua_images", CommandType.StoredProcedure, paramCollection);
+                    paramCollection.Clear();
                 }
                 catch (Exception ex)
                 {
+                    paramCollection.Clear();
                     MessageBox.Show(string.Concat(new object[]
                     {
                         ex.Message,
@@ -396,9 +398,11 @@ namespace EchoAdmin
                 try
                 {
                     EClinicDB.ExecuteNonQuery("spps_clsketqua_images", CommandType.StoredProcedure, paramCollection);
+                    paramCollection.Clear();
                 }
                 catch (Exception ex)
                 {
+                    paramCollection.Clear();
                     MessageBox.Show(string.Concat(new object[]
                     {
                         ex.Message,
