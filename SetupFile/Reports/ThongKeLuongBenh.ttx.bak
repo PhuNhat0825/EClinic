@@ -1,7 +1,0 @@
-CLS_KetQua_Id	Number
-NgayThucHien	DATETIME
-TenPhongBan		String	
-BSThucHien		String	200
-TenDichVu		String	200
-GiaDichVu		Number
-GiaTienCong		Number
