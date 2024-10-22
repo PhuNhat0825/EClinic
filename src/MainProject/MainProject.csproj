@@ -69,10 +69,10 @@
       <HintPath>..\packages\MySql.Data.6.7.9\lib\net45\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="PharmaAdmin">
-      <HintPath>..\..\EClinic_SA002\PharmaAdmin.dll</HintPath>
+      <HintPath>..\..\..\EClinic_SA002\PharmaAdmin.dll</HintPath>
     </Reference>
     <Reference Include="SKCDExtCtrl">
-      <HintPath>..\..\EClinic_SA002\SKCDExtCtrl.dll</HintPath>
+      <HintPath>..\..\..\EClinic_SA002\SKCDExtCtrl.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

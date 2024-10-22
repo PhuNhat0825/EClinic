@@ -427,7 +427,11 @@ namespace EchoAdmin
             dataSet.Tables[0].TableName = "KetQuaSieuAm";
 
             paramCollection.Clear();
-            new ReportCommon(EClinicConfig.ReportsPath + "SieuAmChung.rpt")
+
+            paramCollection.Add("param1", DbDataType.Int32, 11, this.intCLSKetQuaChiTiet_Id);
+            EClinicDB.FillDataset(ref dataSet, "sp_clsketqua_sieuam_image", CommandType.StoredProcedure, paramCollection, "image");
+
+            new ReportCommon("C:\\Users\\PhuQuangNhatOng\\Documents\\GitHub\\EClinic\\src\\CrystRptManager\\CrystRptManager\\SieuAmChung.rpt")
             {
                 DataSource = dataSet
             }.Show();
