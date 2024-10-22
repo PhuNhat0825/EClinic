@@ -23,7 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>false</MapFileExtensions>
-    <ApplicationRevision>8</ApplicationRevision>
+    <ApplicationRevision>10</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -69,10 +69,10 @@
       <HintPath>..\packages\MySql.Data.6.7.9\lib\net45\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="PharmaAdmin">
-      <HintPath>..\..\EClinic_SA002\PharmaAdmin.dll</HintPath>
+      <HintPath>..\..\..\EClinic_SA002\PharmaAdmin.dll</HintPath>
     </Reference>
     <Reference Include="SKCDExtCtrl">
-      <HintPath>..\..\EClinic_SA002\SKCDExtCtrl.dll</HintPath>
+      <HintPath>..\..\..\EClinic_SA002\SKCDExtCtrl.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

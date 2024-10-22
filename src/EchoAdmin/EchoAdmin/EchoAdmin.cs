@@ -427,6 +427,7 @@ namespace EchoAdmin
             dataSet.Tables[0].TableName = "KetQuaSieuAm";
 
             paramCollection.Clear();
+
             new ReportCommon(EClinicConfig.ReportsPath + "SieuAmChung.rpt")
             {
                 DataSource = dataSet

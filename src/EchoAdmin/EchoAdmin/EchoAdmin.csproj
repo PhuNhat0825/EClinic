@@ -107,7 +107,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="SKCDExtCtrl">
-      <HintPath>..\..\..\EClinic_SA002\SKCDExtCtrl.dll</HintPath>
+      <HintPath>..\..\..\..\EClinic_SA002\SKCDExtCtrl.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -117,9 +117,6 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Utility">
-      <HintPath>..\..\..\EClinic_SA002\Utility.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <AppDesigner Include="Properties\" />
@@ -203,6 +200,10 @@
     <ProjectReference Include="..\..\DBInteraction\DBInteraction\DBInteraction.csproj">
       <Project>{6a78321d-d3f2-4854-ba6b-7ed09c2844a0}</Project>
       <Name>DBInteraction</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Utility\Utility\Utility.csproj">
+      <Project>{7327c867-b5a9-473a-91e7-9086cacb6ccd}</Project>
+      <Name>Utility</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
