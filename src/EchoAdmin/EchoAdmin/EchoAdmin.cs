@@ -428,10 +428,7 @@ namespace EchoAdmin
 
             paramCollection.Clear();
 
-            paramCollection.Add("param1", DbDataType.Int32, 11, this.intCLSKetQuaChiTiet_Id);
-            EClinicDB.FillDataset(ref dataSet, "sp_clsketqua_sieuam_image", CommandType.StoredProcedure, paramCollection, "image");
-
-            new ReportCommon("C:\\Users\\PhuQuangNhatOng\\Documents\\GitHub\\EClinic\\src\\CrystRptManager\\CrystRptManager\\SieuAmChung.rpt")
+            new ReportCommon(EClinicConfig.ReportsPath + "SieuAmChung.rpt")
             {
                 DataSource = dataSet
             }.Show();
