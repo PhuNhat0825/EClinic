@@ -13,7 +13,6 @@ using Utility;
 
 namespace EchoAdmin
 {
-    // Token: 0x02000007 RID: 7
     public partial class EchoAdmin : Form
     {
         // Token: 0x06000035 RID: 53 RVA: 0x000095B4 File Offset: 0x000085B4
