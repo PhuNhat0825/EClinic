@@ -309,7 +309,6 @@ namespace EchoAdmin
         // Token: 0x0600004C RID: 76 RVA: 0x00009FD8 File Offset: 0x00008FD8
         private bool LuuKetQuaSieuAm()
         {
-            string empty = string.Empty;
             ParamCollection paramCollection = new ParamCollection();
             if (this.intClsKetqua == 0)
             {
@@ -418,7 +417,6 @@ namespace EchoAdmin
         // Token: 0x0600004D RID: 77 RVA: 0x0000A4F4 File Offset: 0x000094F4
         private void buttonInKetQua_Click(object sender, EventArgs e)
         {
-
             ParamCollection paramCollection = new ParamCollection();
             paramCollection.Add("param1", DbDataType.Int32, 11, this.intCLSKetQuaChiTiet_Id);
             DataSet dataSet = EClinicDB.FillDatasetDecrypt("sp_rp_ketqua_sieuam_all_value", paramCollection, "dm_benhnhan");
@@ -426,6 +424,31 @@ namespace EchoAdmin
             dataSet.Tables[0].TableName = "KetQuaSieuAm";
 
             paramCollection.Clear();
+
+            paramCollection.Add("param1", DbDataType.Int32, 11, this.intCLSKetQuaChiTiet_Id);
+            EClinicDB.FillDataset(ref dataSet, "sp_clsketqua_sieuam_image", CommandType.StoredProcedure, paramCollection, "Image");
+
+            paramCollection.Clear();
+
+            var imageRows = dataSet.Tables["Image"].Rows;
+
+            if (imageRows.Count > 1)
+            {
+                var indexColumnImage = dataSet.Tables["Image"].Columns.IndexOf("image");
+
+                var imageRow1 = imageRows[0][indexColumnImage];
+                var imageRow2 = imageRows[1][indexColumnImage];
+
+                var tableKetQuaSieuAm = dataSet.Tables["KetQuaSieuAm"];
+                tableKetQuaSieuAm.Columns.Add("image2", typeof(byte[]));
+
+                var indexColumnImageKqSieuAm1 = tableKetQuaSieuAm.Columns.IndexOf("image");
+                var indexColumnImageKqSieuAm2 = tableKetQuaSieuAm.Columns.IndexOf("image2");
+
+                tableKetQuaSieuAm.Rows[0][indexColumnImageKqSieuAm1] = imageRow1;
+
+                tableKetQuaSieuAm.Rows[0][indexColumnImageKqSieuAm2] = imageRow2;
+            }
 
             new ReportCommon(EClinicConfig.ReportsPath + "SieuAmChung.rpt")
             {
