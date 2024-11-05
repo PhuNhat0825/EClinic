@@ -16,14 +16,14 @@ namespace CrystRptManager {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class CrystalReport1 : ReportClass {
+    public class SieuAmChung : ReportClass {
         
-        public CrystalReport1() {
+        public SieuAmChung() {
         }
         
         public override string ResourceName {
             get {
-                return "CrystalReport1.rpt";
+                return "SieuAmChung.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace CrystRptManager {
         
         public override string FullResourceName {
             get {
-                return "CrystRptManager.CrystalReport1.rpt";
+                return "CrystRptManager.SieuAmChung.rpt";
             }
             set {
                 // Do nothing
@@ -74,7 +74,7 @@ namespace CrystRptManager {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
+        public CrystalDecisions.CrystalReports.Engine.Section DetailSection1 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,17 +82,25 @@ namespace CrystRptManager {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
             get {
                 return this.ReportDefinition.Sections[4];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+            get {
+                return this.ReportDefinition.Sections[5];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCrystalReport1 : Component, ICachedReport {
+    public class CachedSieuAmChung : Component, ICachedReport {
         
-        public CachedCrystalReport1() {
+        public CachedSieuAmChung() {
         }
         
         [Browsable(false)]
@@ -129,7 +137,7 @@ namespace CrystRptManager {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            CrystalReport1 rpt = new CrystalReport1();
+            SieuAmChung rpt = new SieuAmChung();
             rpt.Site = this.Site;
             return rpt;
         }
