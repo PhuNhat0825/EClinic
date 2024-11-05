@@ -310,9 +310,11 @@ namespace EchoAdmin
         private bool LuuKetQuaSieuAm()
         {
             ParamCollection paramCollection = new ParamCollection();
+            var isInsertKq = false;
             if (this.intClsKetqua == 0)
             {
                 paramCollection.Add("GroupCommand", DbDataType.VarString, 10, "INSERT");
+                isInsertKq = true;
             }
             else
             {
@@ -361,11 +363,12 @@ namespace EchoAdmin
             {
                 GeneralUtility.ArrayCaptureImages.Add((Bitmap)this.pictureBox4.Image.Clone());
             }
-            foreach (int num in this.aImagesId)
+
+            if (!isInsertKq)
             {
-                paramCollection.Add("GroupCommand", DbDataType.VarString, 10, "DELETE");
-                paramCollection.Add("Images_Id", DbDataType.Int32, 11, num);
-                paramCollection.Add("CLSKetQua_Id", DbDataType.Int32, 11, 0);
+                paramCollection.Add("GroupCommand", DbDataType.VarString, 10, "DELETE2");
+                paramCollection.Add("Images_Id", DbDataType.Int32, 11, 0);
+                paramCollection.Add("CLSKetQua_Id", DbDataType.Int32, 11, this.intClsKetqua);
                 paramCollection.Add("Image_Data", DbDataType.Blob, 0, null);
                 paramCollection.Add("TamNgung", DbDataType.Int32, 1, 0);
                 try
@@ -386,6 +389,7 @@ namespace EchoAdmin
                     }));
                 }
             }
+
             foreach (Bitmap image in GeneralUtility.ArrayCaptureImages)
             {
                 paramCollection.Add("GroupCommand", DbDataType.VarString, 10, "INSERT");
@@ -426,7 +430,7 @@ namespace EchoAdmin
             paramCollection.Clear();
 
             paramCollection.Add("param1", DbDataType.Int32, 11, this.intCLSKetQuaChiTiet_Id);
-            EClinicDB.FillDataset(ref dataSet, "sp_clsketqua_sieuam_image", CommandType.StoredProcedure, paramCollection, "Image");
+            EClinicDB.FillDataset(ref dataSet, "sp_clsketqua_sieuam_image_2", CommandType.StoredProcedure, paramCollection, "Image");
 
             paramCollection.Clear();
 

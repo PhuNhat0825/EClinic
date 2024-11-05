@@ -122,10 +122,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CrystalReport1.cs">
+    <Compile Include="SieuAmChung.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <DependentUpon>SieuAmChung.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DataSets\dsKetQuaSA.cs" />
@@ -354,9 +354,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CrystalReport1.rpt">
+    <EmbeddedResource Include="SieuAmChung.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+      <LastGenOutput>SieuAmChung.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Designs\crHinhAnh.rpt" />
     <EmbeddedResource Include="Designs\crSAKHAC.rpt" />
