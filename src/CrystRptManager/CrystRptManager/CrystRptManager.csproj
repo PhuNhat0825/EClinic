@@ -122,12 +122,6 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SieuAmChung.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SieuAmChung.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="DataSets\dsKetQuaSA.cs" />
     <Compile Include="Designs\CachedcrHinhAnh.cs">
       <SubType>Component</SubType>
@@ -346,6 +340,12 @@
     <Compile Include="ServiceWageQuery.Designer.cs">
       <DependentUpon>ServiceWageQuery.cs</DependentUpon>
     </Compile>
+    <Compile Include="SieuAmChung.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SieuAmChung.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ThongKeThuNgan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -354,10 +354,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="SieuAmChung.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>SieuAmChung.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Designs\crHinhAnh.rpt" />
     <EmbeddedResource Include="Designs\crSAKHAC.rpt" />
     <EmbeddedResource Include="Designs\crSASK.rpt" />
@@ -394,6 +390,10 @@
     <EmbeddedResource Include="ReportSATVu.resources" />
     <EmbeddedResource Include="ReportThongKeLuongBenh.resources" />
     <EmbeddedResource Include="ServiceWageQuery.resources" />
+    <EmbeddedResource Include="SieuAmChung.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SieuAmChung.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ThongKeThuNgan.resources" />
   </ItemGroup>
   <ItemGroup>

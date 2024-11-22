@@ -47,6 +47,8 @@ namespace EchoAdmin
             {
                 this.comboBoxPhongSieuAm.Enabled = false;
                 int num = (int)EClinicDB.ExecuteScalar("select phongban_id from dm_phongban where maphongban = '" + EClinicConfig.ComputerNo + "'");
+
+                isChangePhongSieuAm = true;
                 this.comboBoxPhongSieuAm.SelectedValue = num;
             }
             else
@@ -86,33 +88,48 @@ namespace EchoAdmin
             {
                 this.LoadControlKetQuaSA("TQ1");
             }
-            this.intCLSKetQuaChiTiet_Id = int.Parse(StringExt.StringZero(this.dataGridViewExt1.SelectedRows[0].Cells["YeuCauChiTiet_Id"].Value));
-            if (this.TaoMoiKetQuaSieuAm(this.intCLSKetQuaChiTiet_Id))
+
+            try
             {
-                this.boolLoadedCapture = true;
-                this.SetTrangThaiNutLenh(EchoAdmin.ButtonStat.Progress);
-                this.labelSoPhieuYeuCau.Text = this.dataGridViewExt1.SelectedRows[0].Cells["SoPhieuYeuCau"].Value.ToString();
-                EClinicConfig.BenhNhanID = (int)this.dataGridViewExt1.SelectedRows[0].Cells["BenhNhan_Id"].Value;
-                if (this.LoadDuLieuBenhNhan(EClinicConfig.BenhNhanID))
+                this.intCLSKetQuaChiTiet_Id = int.Parse(StringExt.StringZero(this.dataGridViewExt1.SelectedRows[0].Cells["YeuCauChiTiet_Id"].Value));
+                if (this.TaoMoiKetQuaSieuAm(this.intCLSKetQuaChiTiet_Id))
                 {
-                    this.labelBsSieuAm.Text = this.comboBoxBsSieuAm.Text;
-                    this.labelPhongBanThucHien.Text = this.comboBoxPhongSieuAm.Text;
-                    this.labelDichVuSieuAm.Text = StringExt.StringNull(this.dataGridViewExt1.SelectedRows[0].Cells["TenDichVu"].Value);
-                    this.intDichVu_Id = int.Parse(StringExt.StringZero(this.dataGridViewExt1.SelectedRows[0].Cells["DichVu_id"].Value));
-                    if (this.LoadMauKetQua(this.intDichVu_Id) > 0)
+                    this.boolLoadedCapture = true;
+                    this.SetTrangThaiNutLenh(EchoAdmin.ButtonStat.Progress);
+                    this.labelSoPhieuYeuCau.Text = this.dataGridViewExt1.SelectedRows[0].Cells["SoPhieuYeuCau"].Value.ToString();
+                    EClinicConfig.BenhNhanID = (int)this.dataGridViewExt1.SelectedRows[0].Cells["BenhNhan_Id"].Value;
+                    if (this.LoadDuLieuBenhNhan(EClinicConfig.BenhNhanID))
                     {
-                        this.buttonMacDinh.Enabled = true;
+                        this.labelBsSieuAm.Text = this.comboBoxBsSieuAm.Text;
+                        this.labelPhongBanThucHien.Text = this.comboBoxPhongSieuAm.Text;
+                        this.labelDichVuSieuAm.Text = StringExt.StringNull(this.dataGridViewExt1.SelectedRows[0].Cells["TenDichVu"].Value);
+                        this.intDichVu_Id = int.Parse(StringExt.StringZero(this.dataGridViewExt1.SelectedRows[0].Cells["DichVu_id"].Value));
+                        if (this.LoadMauKetQua(this.intDichVu_Id) > 0)
+                        {
+                            this.buttonMacDinh.Enabled = true;
+                        }
                     }
+                    this.tabControl1.SelectedTab = this.tabPageHinhAnh;
                 }
-                this.tabControl1.SelectedTab = this.tabPageHinhAnh;
+                else
+                {
+                    this.boolDangTienHanhSieuAm = true;
+                }
+                if (this.boolDangTienHanhSieuAm)
+                {
+                    this.buttonTienHanh.Enabled = false;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                this.boolDangTienHanhSieuAm = true;
-            }
-            if (this.boolDangTienHanhSieuAm)
-            {
-                this.buttonTienHanh.Enabled = false;
+                MessageBox.Show(string.Concat(new object[]
+                {
+                    ex.Message,
+                    "\n",
+                    ex.Source,
+                    "\n",
+                    ex.InnerException
+                }), caption: $"Lỗi tiến hành siêu âm.");
             }
         }
 
@@ -128,13 +145,16 @@ namespace EchoAdmin
         {
             this.CapNhatDataGridDsYeuCau();
             this.buttonSuaKetQua.Enabled = false;
-            this.buttonTienHanh.Enabled = true;
+
+            if (this.dataGridViewExt1.RowCount > 0)
+                this.buttonTienHanh.Enabled = true;
         }
 
         // Token: 0x0600003D RID: 61 RVA: 0x00009A42 File Offset: 0x00008A42
         private void comboBoxPhongSieuAm_SelectedValueChanged(object sender, EventArgs e)
         {
-            this.buttonCapnhatDataGrid.PerformClick();
+            if (isChangePhongSieuAm)
+                this.buttonCapnhatDataGrid.PerformClick();
         }
 
         /// <summary>
@@ -154,7 +174,6 @@ namespace EchoAdmin
             this.checkBox1.Checked = true;
         }
 
-        // Token: 0x06000040 RID: 64 RVA: 0x00009AE8 File Offset: 0x00008AE8
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             Bitmap image = new Bitmap(this.captureMovie1.ImageVideoShot);
@@ -162,7 +181,6 @@ namespace EchoAdmin
             this.checkBox2.Checked = true;
         }
 
-        // Token: 0x06000041 RID: 65 RVA: 0x00009B24 File Offset: 0x00008B24
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             Bitmap image = new Bitmap(this.captureMovie1.ImageVideoShot);
@@ -170,7 +188,6 @@ namespace EchoAdmin
             this.checkBox3.Checked = true;
         }
 
-        // Token: 0x06000042 RID: 66 RVA: 0x00009B60 File Offset: 0x00008B60
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             Bitmap image = new Bitmap(this.captureMovie1.ImageVideoShot);
@@ -311,10 +328,12 @@ namespace EchoAdmin
         {
             ParamCollection paramCollection = new ParamCollection();
             var isInsertKq = false;
+            var messageSaveKqError = "Chỉnh sửa";
             if (this.intClsKetqua == 0)
             {
                 paramCollection.Add("GroupCommand", DbDataType.VarString, 10, "INSERT");
                 isInsertKq = true;
+                messageSaveKqError = "Lưu mới";
             }
             else
             {
@@ -343,7 +362,7 @@ namespace EchoAdmin
                     ex.Source,
                     "\n",
                     ex.InnerException
-                }));
+                }), caption: $"Lỗi {messageSaveKqError} kết quả.");
             }
             paramCollection.Clear();
             GeneralUtility.ArrayCaptureImages.Clear();
@@ -386,7 +405,7 @@ namespace EchoAdmin
                         ex.Source,
                         "\n",
                         ex.InnerException
-                    }));
+                    }), caption: "Lỗi xóa hình ảnh");
                 }
             }
 
@@ -412,7 +431,7 @@ namespace EchoAdmin
                         ex.Source,
                         "\n",
                         ex.InnerException
-                    }));
+                    }), caption: "Lỗi lưu hình ảnh");
                 }
             }
             return true;
@@ -611,6 +630,8 @@ namespace EchoAdmin
 
         // Token: 0x04000092 RID: 146
         private int intClsKetqua = 0;
+
+        private bool isChangePhongSieuAm = false;
 
         // Token: 0x02000008 RID: 8
         private enum ButtonStat
